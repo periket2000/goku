@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
-        "log/syslog"
+//        "log/syslog"
 //	"net"
 	"net/http"
 //	"net/http/fcgi"
