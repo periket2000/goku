@@ -42,10 +42,10 @@ func main() {
 	server := Server{}
 
         // Configure logger to write to the syslog. You could do this in init(), too.
-        logwriter, e := syslog.New(syslog.LOG_NOTICE, "goku sayan")
+        /*logwriter, e := syslog.New(syslog.LOG_NOTICE, "goku sayan")
         if e == nil {
             log.SetOutput(logwriter)
-        }
+        }*/
 
 	go func() {
 		http.Handle("/", server)
