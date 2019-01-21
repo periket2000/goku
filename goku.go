@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+        "log/syslog"
 //	"net"
 	"net/http"
 //	"net/http/fcgi"
@@ -39,6 +40,12 @@ func main() {
 	signal.Notify(sigchan, syscall.SIGTERM)
 
 	server := Server{}
+
+        // Configure logger to write to the syslog. You could do this in init(), too.
+        logwriter, e := syslog.New(syslog.LOG_NOTICE, "goku sayan")
+        if e == nil {
+            log.SetOutput(logwriter)
+        }
 
 	go func() {
 		http.Handle("/", server)
